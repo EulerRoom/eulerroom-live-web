@@ -1,28 +1,34 @@
-# muxy-frontend
-Frontend for stream performance registration
+# eulerroom-live-web
 
-## Development Environment Variables Setup
-1. Create file `.env.local`
-2. Add the following variables:
+Website for Eulerroom self-hosted live streaming events and historical archive
+
+## Install
+
+1. Copy `.env` into a new file `.env.local`
+2. Change the values in `.env.local` to match your local setup:
+
 ```
 REACT_APP_MUXY_API_KEY=super-secret-muxy-api-key
 REACT_APP_EVENT_SLUG=muxy-event-slug
 REACT_APP_MUXY_URL=muxy-base-url
 ```
 
-## event page 
+### Event page 
+
 HTML set in: `src/app/components/EventHeader.tsx`
+
 * Intro (Toplap presents:), event Title
 
+### event details
 
-## event details
 Slot duration set in: 
+
 * `src/app/components/PerformanceList.tsx`
-* const SLOT_DURATION_MIN
+* `const SLOT_DURATION_MIN`
 
-Event start date/time, end date/time, preparation time, support links etc set in Muxy Admin:
-* https://muxy.tidalcycles.org/admin
+### Others
 
+Event start date/time, end date/time, preparation time, support links etc set
+in Muxy Admin:
 
-
-
+https://muxy.tidalcycles.org/admin
