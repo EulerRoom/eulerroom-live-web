@@ -8,7 +8,7 @@ interface Props {
 function PerformanceDestroyForm({ streamUrl, onRemove }: Props): ReactElement {
   const [streamKey, setStreamKey] = useState<string>("");
   const [failed, setFailed] = useState<boolean>(false);
-  const muxyApiKey: string = process.env.REACT_APP_MUXY_API_KEY as string;
+  const muxyApiKey: string = import.meta.env.env.VITE_MUXY_API_KEY as string;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,7 +51,8 @@ function PerformanceDestroyForm({ streamUrl, onRemove }: Props): ReactElement {
 
           {failed && (
             <p style={{ color: "red" }}>
-              Something went wrong, did you entered the incorrect stream key? Please try again.
+              Something went wrong, did you entered the incorrect stream key?
+              Please try again.
             </p>
           )}
           <input

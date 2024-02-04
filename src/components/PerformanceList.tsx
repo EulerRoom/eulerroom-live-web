@@ -1,8 +1,8 @@
-import React, { ReactElement, useEffect, useState, useMemo } from "react";
-import "../../assets/css/PerformanceList.css";
-import { MuxyStreams, MuxyStream, EmptyMuxyStream } from "../types";
-import PerformanceCard from "./PerformanceCard";
 import { DateTime } from "luxon";
+import { ReactElement, useEffect, useMemo, useState } from "react";
+import "../assets/css/PerformanceList.css";
+import { EmptyMuxyStream, MuxyStream, MuxyStreams } from "../types";
+import PerformanceCard from "./PerformanceCard";
 
 interface Props {
   slug: string;
@@ -15,24 +15,31 @@ interface Props {
 
 const SLOT_DURATION_MIN = 15;
 
-const PerformanceList = ({slug, eventUrl, startsAt, endsAt, setReservedStreamCount, setTotalStreamCount}: Props): ReactElement => {
-    const muxyApiKey: string = (process.env.REACT_APP_MUXY_API_KEY as string);
-    const muxyUrl: string = (process.env.REACT_APP_MUXY_URL as string);
-    const [muxyStreams, setMuxyStreams] = useState<MuxyStreams | null>(null);
+const PerformanceList = ({
+  slug,
+  eventUrl,
+  startsAt,
+  endsAt,
+  setReservedStreamCount,
+  setTotalStreamCount,
+}: Props): ReactElement => {
+  const muxyApiKey: string = import.meta.env.VITE_MUXY_API_KEY as string;
+  const muxyUrl: string = import.meta.env.VITE_MUXY_URL as string;
+  const [muxyStreams, setMuxyStreams] = useState<MuxyStreams | null>(null);
 
-    useEffect(() => {
-      fetch(`${muxyUrl}/streams/?event__slug=${slug}`, {
-        method: "get",
-        headers: new Headers({
-          Authorization: `Api-Key ${muxyApiKey}`,
-        }),
+  useEffect(() => {
+    fetch(`${muxyUrl}/streams/?event__slug=${slug}`, {
+      method: "get",
+      headers: new Headers({
+        Authorization: `Api-Key ${muxyApiKey}`,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setMuxyStreams(data);
       })
-        .then((res) => res.json())
-        .then((data) => {
-          setMuxyStreams(data);
-        })
-        .catch(console.error);
-    }, [slug]);
+      .catch(console.error);
+  }, [slug]);
 
   const allStreams: (MuxyStream | EmptyMuxyStream)[] = useMemo(() => {
     if (!startsAt || !endsAt) return [];
@@ -56,8 +63,12 @@ const PerformanceList = ({slug, eventUrl, startsAt, endsAt, setReservedStreamCou
         minutes: SLOT_DURATION_MIN,
       });
 
-      const streamStartsAt = streamStartsAtDt.toUTC().toFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-      const streamEndsAt = streamEndsAtDt.toUTC().toFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+      const streamStartsAt = streamStartsAtDt
+        .toUTC()
+        .toFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+      const streamEndsAt = streamEndsAtDt
+        .toUTC()
+        .toFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
       const stream = results.find(
         (stream) =>
           stream.starts_at == streamStartsAt && stream.ends_at == streamEndsAt
@@ -66,11 +77,11 @@ const PerformanceList = ({slug, eventUrl, startsAt, endsAt, setReservedStreamCou
       return stream || { starts_at: streamStartsAt, ends_at: streamEndsAt };
     });
 
-    return slots
+    return slots;
   }, [muxyStreams]);
 
-  setReservedStreamCount(muxyStreams ? muxyStreams.results.length: 0);
-  setTotalStreamCount(allStreams ? allStreams.length: 0);
+  setReservedStreamCount(muxyStreams ? muxyStreams.results.length : 0);
+  setTotalStreamCount(allStreams ? allStreams.length : 0);
 
   return (
     <div className="performance-list">
