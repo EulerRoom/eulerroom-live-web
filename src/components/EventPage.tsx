@@ -26,9 +26,9 @@ function EventPage(): ReactElement {
         setMuxyEvents(data);
       })
       .catch(console.error);
-  }, [eventSlug]);
+  }, [eventSlug, muxyApiKey, muxyUrl]);
 
-  const event = muxyEvents?.results[0];
+  const event = muxyEvents?.results && muxyEvents?.results[0];
 
   return (
     <main className="App">
