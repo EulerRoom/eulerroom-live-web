@@ -48,7 +48,7 @@ export function HlsPlayer({
         });
       });
 
-      newHls.on(Hls.Events.ERROR, function (event, data) {
+      newHls.on(Hls.Events.ERROR, function (_event, data) {
         if (data.fatal) {
           switch (data.type) {
             case Hls.ErrorTypes.NETWORK_ERROR:
