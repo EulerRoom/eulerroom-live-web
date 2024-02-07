@@ -6,11 +6,16 @@ import "./index.css";
 import "./App.css";
 
 import Root from "./routes/root";
+import Live from "./routes/live";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+  },
+  {
+    path: "/live",
+    element: <Live />,
   },
 ]);
 
