@@ -46,6 +46,8 @@ function EventHeader({
       <img src={logo} className="App-logo" alt="logo" />
       <h4>TOPLAP Presents ...</h4>
       <h1>TOPLAP20 Live Stream</h1>
+      <b>Note:</b> This is event is not yet open for slot registration. Slot
+      registration opens Monday, Feb 12th.
       <h2>
         {" "}
         {event &&
@@ -53,8 +55,6 @@ function EventHeader({
         - {event && DateTime.fromISO(event.ends_at).toFormat("dd. LLLL HH:mm")}{" "}
         {event && DateTime.fromISO(event.starts_at).toFormat("yyyy")}
       </h2>
-      Note: This is event is not yet open for slot registration. Slot
-      registration opens Monday, Feb 12th.
       <hr />
       <ProgressBar
         className="wrapper"
