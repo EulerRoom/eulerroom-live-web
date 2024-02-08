@@ -53,8 +53,9 @@ function EventHeader({
         - {event && DateTime.fromISO(event.ends_at).toFormat("dd. LLLL HH:mm")}{" "}
         {event && DateTime.fromISO(event.starts_at).toFormat("yyyy")}
       </h2>
+      Note: This is event is not yet open for slot registration. Slot
+      registration opens Monday, Feb 12th.
       <hr />
-
       <ProgressBar
         className="wrapper"
         bgColor={"#a9c27c"}
@@ -67,7 +68,6 @@ function EventHeader({
         customLabel={`${progressBarValues.reserved}/${progressBarValues.total} slots are filled`}
         completed={progressBarValues.percent}
       />
-
       <hr />
       <p>Your timezone: {Intl.DateTimeFormat().resolvedOptions().timeZone}</p>
       <p className="link-paragraph">
