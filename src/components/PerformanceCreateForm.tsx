@@ -13,6 +13,7 @@ function PerformanceCreateForm({
 }: Props): ReactElement {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [streamkey, setStreamKey] = useState<string>("");
   const [location, setLocation] = useState<string>("");
@@ -31,7 +32,7 @@ function PerformanceCreateForm({
       body: JSON.stringify({
         publisher_name: name,
         publisher_email: email,
-        description: description,
+        title: title,
         location: location,
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         event: eventUrl, // This needs to come from the muxy event (isn't available right now)
@@ -83,12 +84,19 @@ function PerformanceCreateForm({
             required
           />
           <input
+            id="title"
+            type="text"
+            placeholder="Title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+          <input
             id="description"
             type="text"
-            placeholder="Description"
+            placeholder="Description (used for archive videos)"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
           />
           <input
             id="location"

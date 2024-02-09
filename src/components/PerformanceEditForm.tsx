@@ -15,6 +15,7 @@ function PerformanceEditForm({
   setCurrMuxyStream,
 }: Props): ReactElement {
   const [name, setName] = useState<string>(currMuxyStream.publisher_name);
+  const [title, setTitle] = useState<string>(currMuxyStream.title);
   const [description, setDescription] = useState<string>(
     currMuxyStream.description
   );
@@ -36,6 +37,7 @@ function PerformanceEditForm({
 
     const body = JSON.stringify({
       publisher_name: name,
+      title: title,
       description: description,
       location: location,
       ends_at: currMuxyStream.ends_at,
@@ -55,6 +57,7 @@ function PerformanceEditForm({
           setCurrMuxyStream({
             ...currMuxyStream,
             publisher_name: name,
+            title: title,
             description: description,
             location: location,
           });
@@ -107,12 +110,19 @@ function PerformanceEditForm({
           required
         />
         <input
+          id="title"
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+        <input
           id="description"
           type="text"
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          required
         />
         <input
           id="location"

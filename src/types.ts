@@ -23,6 +23,7 @@ export type MuxyStream = {
   url: string;
   publisher_name: string;
   publisher_email: string;
+  title: string;
   description: string;
   location: string;
   timezone: string;

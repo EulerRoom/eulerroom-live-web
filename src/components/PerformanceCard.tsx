@@ -34,8 +34,8 @@ const PerformanceCard = ({
 
   let text = null;
   if ("publisher_name" in currMuxyStream) {
-    const { publisher_name, location, description, timezone } = currMuxyStream;
-    text = [publisher_name, location, description, timezone].join(" / ");
+    const { publisher_name, location, title, timezone } = currMuxyStream;
+    text = [publisher_name, location, title, timezone].join(" / ");
   }
 
   const resetFormStates = () => {
