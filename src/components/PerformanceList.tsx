@@ -45,39 +45,46 @@ const PerformanceList = ({
     if (!startsAt || !endsAt) return [];
     if (!muxyStreams) return [];
 
-    // eslint-disable-next-line no-debugger
+    const results = muxyStreams?.results || [];
+
+    // Sort streams by start time (just in case)
+    const sortedStreams = results.sort((a, b) => {
+      return a.starts_at.localeCompare(b.starts_at);
+    });
+
     const startsAtDt = DateTime.fromISO(startsAt);
     const endsAtDt = DateTime.fromISO(endsAt);
 
-    const diff = endsAtDt.diff(startsAtDt, ["minute"]).toObject();
-    const numSlots = diff?.minutes ? diff.minutes / SLOT_DURATION_MIN : 0;
+    const allSlots = [];
 
-    const results = muxyStreams?.results || [];
+    // Try to create empty slots for every SLOT_DURATION_MIN minutes If there is
+    // already a stream that fits in the slot (or overlaps with it), use it and
+    // continue from the end of it. Otherwise create an empty slot.
+    let slotAt = startsAtDt;
+    while (slotAt < endsAtDt) {
+      const nextSlotAt = slotAt.plus({ minutes: SLOT_DURATION_MIN });
 
-    // Build slots array
-    const slots = Array.from(Array(numSlots)).map((_, i) => {
-      const streamStartsAtDt = startsAtDt.plus({
-        minutes: i * SLOT_DURATION_MIN,
+      // Find the first stream that fits in the slot or overlaps with it
+      const stream = sortedStreams.find((stream) => {
+        const streamStartsAtDt = DateTime.fromISO(stream.starts_at);
+        const streamEndsAtDt = DateTime.fromISO(stream.ends_at);
+        return slotAt >= streamStartsAtDt && nextSlotAt <= streamEndsAtDt;
       });
-      const streamEndsAtDt = streamStartsAtDt.plus({
-        minutes: SLOT_DURATION_MIN,
-      });
 
-      const streamStartsAt = streamStartsAtDt
-        .toUTC()
-        .toFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-      const streamEndsAt = streamEndsAtDt
-        .toUTC()
-        .toFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-      const stream = results.find(
-        (stream) =>
-          stream.starts_at == streamStartsAt && stream.ends_at == streamEndsAt
-      );
+      // If no stream fits in the slot, create an empty slot
+      if (!stream) {
+        allSlots.push({
+          starts_at: slotAt.toUTC().toFormat("yyyy-MM-dd'T'HH:mm:ss'Z"),
+          ends_at: nextSlotAt.toUTC().toFormat("yyyy-MM-dd'T'HH:mm:ss'Z"),
+        });
+        slotAt = nextSlotAt;
+      } else {
+        allSlots.push(stream);
+        slotAt = DateTime.fromISO(stream.ends_at);
+      }
+    }
 
-      return stream || { starts_at: streamStartsAt, ends_at: streamEndsAt };
-    });
-
-    return slots;
+    return allSlots;
   }, [muxyStreams]);
 
   setReservedStreamCount(muxyStreams ? muxyStreams.results.length : 0);
