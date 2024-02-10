@@ -4,16 +4,26 @@ Website for Eulerroom self-hosted live streaming events and historical archive
 
 ## Install
 
-1. Copy `.env` into a new file `.env.local`
-2. Change the values in `.env.local` to match your local setup:
+### Obtain a Muxy API key
 
-```
+You will need to create a Web API key from Muxy. You can create one from the
+administrator at `/admin`.
+
+### Configure environment variables
+
+1. Create a file called `.env.local`
+2. Copy any variable from `.env` that you want to modify, to match your local setup:
+
+```bash
 VITE_MUXY_URL=http://localhost:8000
-VITE_MUXY_API_KEY=
-VITE_EVENT_SLUG=
+VITE_MUXY_API_KEY=insert-api-key
+VITE_EVENT_SLUG=insert-event-slug
 ```
 
-## Development
+NOTE: For now, this frontend only works for a specific Event, so you need to
+specify its "slug". You can get this from Muxy admin too.
+
+## Development notes
 
 ### Event page
 
