@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./index.css";
-import "./App.css";
 
 import Root from "./routes/root";
 import Live from "./routes/live";
