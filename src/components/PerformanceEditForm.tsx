@@ -22,7 +22,7 @@ function PerformanceEditForm({
   const [streamKey, setStreamKey] = useState<string>("");
   const [location, setLocation] = useState<string>(currMuxyStream.location);
   const [failed, setFailed] = useState<boolean>(false);
-  const muxyApiKey: string = import.meta.env.env.VITE_MUXY_API_KEY as string;
+  const muxyApiKey: string = import.meta.env.VITE_MUXY_API_KEY as string;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
