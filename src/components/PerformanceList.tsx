@@ -9,6 +9,7 @@ interface Props {
   eventUrl: string;
   startsAt: string;
   endsAt: string;
+  active: boolean;
   setReservedStreamCount: (reservedStreamCount: number | null) => void;
   setTotalStreamCount: (ttalStreamCount: number | null) => void;
 }
@@ -20,6 +21,7 @@ const PerformanceList = ({
   eventUrl,
   startsAt,
   endsAt,
+  active,
   setReservedStreamCount,
   setTotalStreamCount,
 }: Props): ReactElement => {
@@ -85,7 +87,7 @@ const PerformanceList = ({
     }
 
     return allSlots;
-  }, [muxyStreams]);
+  }, [endsAt, muxyStreams, startsAt]);
 
   setReservedStreamCount(muxyStreams ? muxyStreams.results.length : 0);
   setTotalStreamCount(allStreams ? allStreams.length : 0);
@@ -99,6 +101,7 @@ const PerformanceList = ({
             eventUrl={eventUrl}
             muxyStream={muxyStream}
             cycleNo={index + 1}
+            active={active}
           />
         ))}
     </div>

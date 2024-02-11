@@ -10,12 +10,14 @@ interface Props {
   muxyStream: MuxyStream | EmptyMuxyStream;
   cycleNo: number;
   eventUrl: string;
+  active: boolean;
 }
 
 const PerformanceCard = ({
   muxyStream,
   cycleNo,
   eventUrl,
+  active,
 }: Props): ReactElement => {
   const [inCreateMode, setInCreateMode] = useState<boolean>(false);
   const [currMuxyStream, setCurrMuxyStream] = useState<
@@ -61,7 +63,7 @@ const PerformanceCard = ({
         <p className="card-header">Cycle #{cycleNo}</p>
         <p className="card-time">
           {startsAtHs}-{endsAtHs}{" "}
-          {!inCreateMode && !text && (
+          {active && !inCreateMode && !text && (
             <button
               className="card-button-plus"
               onClick={() => setInCreateMode(true)}

@@ -24,6 +24,7 @@ function EventPage(): ReactElement {
       .then((res) => res.json())
       .then((data) => {
         setMuxyEvents(data);
+        console.log(data);
       })
       .catch(console.error);
   }, [eventSlug, muxyApiKey, muxyUrl]);
