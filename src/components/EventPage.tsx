@@ -44,6 +44,7 @@ function EventPage(): ReactElement {
           eventUrl={event.url}
           startsAt={event.starts_at}
           endsAt={event.ends_at}
+          active={event.active}
           setReservedStreamCount={setReservedStreamCount}
           setTotalStreamCount={setTotalStreamCount}
         />
