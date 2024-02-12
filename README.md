@@ -33,6 +33,10 @@ The environment variables can be configured from the repository settings, in the
 `VITE_MUXY_API_KEY` is stored as a secret variable, so you can't see or modify it. 
 If you need to change it you need to recreate it.
 
+If you change some variable, you can wait until a new push to the repo or force a deploy
+by going to [Deploy static content to Pages](https://github.com/EulerRoom/eulerroom-live-web/actions/workflows/deploy.yml) 
+and then clicking on the **Run workflow button**.
+
 ## Development notes
 
 ### Event page
