@@ -1,10 +1,10 @@
+@import url("https://rsms.me/inter/inter.css");
+
 html {
   background: #e5ddee;
   line-height: 0.5;
   margin: 0 auto;
 }
-
-@import url("https://rsms.me/inter/inter.css");
 
 body {
   margin: 0;
