@@ -23,6 +23,16 @@ VITE_EVENT_SLUG=insert-event-slug
 NOTE: For now, this frontend only works for a specific Event, so you need to
 specify its "slug". You can get this from Muxy admin too.
 
+### Deployment with GitHub Pages
+
+We have currently setup GitHub Pages to deploy at https://streams.eulerroom.com when
+someone pushes to the `main` branch in this repository.
+
+The environment variables can be configured from the repository settings, in the
+[Environment Settings for `github-pages`](https://github.com/EulerRoom/eulerroom-live-web/settings/environments/2249116451/edit).
+`VITE_MUXY_API_KEY` is stored as a secret variable, so you can't see or modify it. 
+If you need to change it you need to recreate it.
+
 ## Development notes
 
 ### Event page
