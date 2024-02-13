@@ -55,8 +55,8 @@ function EventHeader({
       </h2>
       {!event?.active && (
         <h4 style={{ color: "darkred" }}>
-          <b>Note:</b> This event is not yet open for registration. Slot
-          registration opens Friday, Feb 16th.
+          Note: This event is not yet open for registration. Slot
+          registration opens Thursday, Feb 15th.
         </h4>
       )}
       <hr />
@@ -77,7 +77,7 @@ function EventHeader({
       <p className="link-paragraph">
         <b>
           Watch live here &gt;&gt;&gt;{" "}
-          <a href={"https://eulerroom.com"}>https://eulerroom.com/</a>
+          <a href={"https://live.eulerroom.com"}>https://live.eulerroom.com/</a>
         </b>
       </p>
     </header>
