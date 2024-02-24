@@ -20,7 +20,9 @@ For a more detailed guide including initial installation, audio configuration, o
     - LIVE: **rtmp://live.eulerroom.com/live**
     - TEST: **rtmp://live.eulerroom.com/test**
     - Stream Service: **Custom**
-- Video Bitrate: **800 Kbps**
+- Video Bitrate:
+    - code window: **800 Kbps**
+    - graphics / motion video: **2500 Kbps**
 - Audio Bitrate: **160**
 - Video: Output (Scaled Resolution): **Max value: 1920x1080**
 - FPS: **24**
