@@ -14,7 +14,7 @@ interface Props {
   setTotalStreamCount: (ttalStreamCount: number | null) => void;
 }
 
-const SLOT_DURATION_MIN = 15;
+const SLOT_DURATION_MIN = 20;
 
 const PerformanceList = ({
   slug,
