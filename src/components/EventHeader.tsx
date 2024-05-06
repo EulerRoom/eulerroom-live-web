@@ -45,7 +45,7 @@ function EventHeader({
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <h4>TOPLAP Presents ...</h4>
-      <h1>TOPLAP20 Live Stream</h1>
+      <h1>TOPLAP Asia - Pacific Live Stream</h1>
       <h2>
         {" "}
         {event &&
@@ -56,7 +56,7 @@ function EventHeader({
       {!event?.active && (
         <h4 style={{ color: "darkred" }}>
           Note: This event is not yet open for registration. Slot
-          registration opens Thursday, Feb 15th.
+          sign up opens Wed, May 8 for Asia/Pacific, May 15th globally.
         </h4>
       )}
       <hr />
