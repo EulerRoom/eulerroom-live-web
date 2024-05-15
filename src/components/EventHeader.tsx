@@ -45,7 +45,7 @@ function EventHeader({
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <h4>TOPLAP Presents ...</h4>
-      <h1>TOPLAP Asia - Pacific Live Stream</h1>
+      <h1>TOPLAP Live Stream: ICLC Satellite</h1>
       <h2>
         {" "}
         {event &&
