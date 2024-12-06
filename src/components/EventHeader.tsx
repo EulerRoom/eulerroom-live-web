@@ -1,7 +1,7 @@
 import ProgressBar from "@ramonak/react-progress-bar";
 import { DateTime } from "luxon";
 import { ReactElement } from "react";
-import logo from "../assets/images/ICLC2024_Satellite.jpg";
+// import logo from "../assets/images/ICLC2024_Satellite.jpg";
 import { MuxyEvent } from "../types";
 
 interface Props {
