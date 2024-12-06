@@ -1,7 +1,7 @@
 @import url("https://rsms.me/inter/inter.css");
 
 html {
-  background: #e5ddee;
+  background: #000;
   line-height: 0.5;
   margin: 0 auto;
 }
@@ -13,7 +13,7 @@ body {
   letter-spacing: -0.85px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #240f15;
+  color: #fff;
 }
 
 main {
@@ -25,12 +25,8 @@ code {
     monospace;
 }
 
-h1 {
-  font-size: clamp(200%, 3vw, 300%);
-}
-
 h2 {
-  color: #3b8577;
+  color: #fff;
 }
 
 h1,
@@ -41,6 +37,11 @@ h3 {
   margin: 0 auto;
   line-height: 1.5;
 }
+
+h1 {
+  font-size: 500%;
+}
+
 
 p {
   line-height: 1.5;
@@ -53,13 +54,13 @@ p.link-paragraph {
 }
 
 a {
-  color: #00303b;
+  color: #fff;
   font-size: 80%;
 }
 
 hr {
   width: 30%;
-  border: 2px solid #e2c2c5;
+  border: 2px solid #fff;
 }
 
 img {
@@ -102,6 +103,6 @@ textarea {
 .label {
   font-size: 100%;
   font-weight: bold;
-  color: black;
+  color: #fff;
   vertical-align: text-bottom;
 }

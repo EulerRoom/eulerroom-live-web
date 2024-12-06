@@ -43,16 +43,16 @@ function EventHeader({
 
   return (
     <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <h4>TOPLAP Presents ...</h4>
-      <h1>TOPLAP Live Stream: ICLC Satellite</h1>
-      <h2>
+      {/* <img src={logo} className="App-logo" alt="logo" /> */}
+      <h1>🌑︎</h1>
+      <h2>End of cycle solstice stream</h2>
+      <h4>
         {" "}
         {event &&
           DateTime.fromISO(event.starts_at).toFormat("dd. LLLL HH:mm")}{" "}
         - {event && DateTime.fromISO(event.ends_at).toFormat("dd. LLLL HH:mm")}{" "}
         {event && DateTime.fromISO(event.starts_at).toFormat("yyyy")}
-      </h2>
+      </h4>
       {!event?.active && (
         <h4 style={{ color: "darkred" }}>
           Note: This event is not yet open for registration. Slot
