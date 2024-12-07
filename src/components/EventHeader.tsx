@@ -44,8 +44,11 @@ function EventHeader({
   return (
     <header className="App-header">
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
-      <h1>🌑︎</h1>
       <h2>End of cycle solstice stream</h2>
+      <h1>🌑︎</h1>
+      <p>Register a performance slot for the end-of-cycle stream below.<br />
+      All live coders welcome, especially if this will be your first public performance.<br />
+      Once you have registered, please await further instructions.</p>
       <h4>
         {" "}
         {event &&
@@ -53,12 +56,12 @@ function EventHeader({
         - {event && DateTime.fromISO(event.ends_at).toFormat("dd. LLLL HH:mm")}{" "}
         {event && DateTime.fromISO(event.starts_at).toFormat("yyyy")}
       </h4>
-      {!event?.active && (
+      {/* {!event?.active && (
         <h4 style={{ color: "darkred" }}>
           Note: This event is not yet open for registration. Slot
           sign up opens Wed, May 8 for Asia/Pacific, May 15th globally.
         </h4>
-      )}
+      )} */}
       <hr />
       <ProgressBar
         className="wrapper"
