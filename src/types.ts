@@ -33,11 +33,16 @@ export type MuxyStream = {
   recordings: string;
   starts_at: string;
   ends_at: string;
+  slots: number;
+  slot_start: number;
+  slot_stop: number;
 };
 
 export type EmptyMuxyStream = {
   starts_at: string;
   ends_at: string;
+  slot_start: number;
+  slot_stop: number;
 };
 
 export type MuxyStreams = {

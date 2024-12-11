@@ -43,7 +43,11 @@ const PerformanceList = ({
       .catch(console.error);
   }, [slug]);
 
-  const allStreams: (MuxyStream | EmptyMuxyStream)[] = useMemo(() => {
+
+const startsAtDt = DateTime.fromISO(startsAt);
+const endsAtDt = DateTime.fromISO(endsAt);
+
+const allStreams: (MuxyStream | EmptyMuxyStream)[] = useMemo(() => {
     if (!startsAt || !endsAt) return [];
     if (!muxyStreams) return [];
 
@@ -54,14 +58,12 @@ const PerformanceList = ({
       return a.starts_at.localeCompare(b.starts_at);
     });
 
-    const startsAtDt = DateTime.fromISO(startsAt);
-    const endsAtDt = DateTime.fromISO(endsAt);
-
     const allSlots = [];
 
     // Try to create empty slots for every SLOT_DURATION_MIN minutes If there is
     // already a stream that fits in the slot (or overlaps with it), use it and
     // continue from the end of it. Otherwise create an empty slot.
+    let slot_n = 0;
     let slotAt = startsAtDt;
     while (slotAt < endsAtDt) {
       const nextSlotAt = slotAt.plus({ minutes: SLOT_DURATION_MIN });
@@ -78,11 +80,20 @@ const PerformanceList = ({
         allSlots.push({
           starts_at: slotAt.toUTC().toFormat("yyyy-MM-dd'T'HH:mm:ss'Z"),
           ends_at: nextSlotAt.toUTC().toFormat("yyyy-MM-dd'T'HH:mm:ss'Z"),
+          slot_start: slot_n + 1,
+          slot_stop: slot_n + 1,
         });
+        slot_n++;
         slotAt = nextSlotAt;
       } else {
-        allSlots.push(stream);
+        // Hack to cope with streams that last for more than one slot
+        const slots = DateTime.fromISO(stream.ends_at).diff(DateTime.fromISO(stream.starts_at)).milliseconds/1000/60/SLOT_DURATION_MIN;
+        stream.slot_start = slot_n + 1;
+        stream.slot_stop = slot_n + slots;
+        slot_n += slots;
         slotAt = DateTime.fromISO(stream.ends_at);
+
+        allSlots.push(stream);
       }
     }
 
@@ -90,7 +101,7 @@ const PerformanceList = ({
   }, [endsAt, muxyStreams, startsAt]);
 
   setReservedStreamCount(muxyStreams ? muxyStreams.results.length : 0);
-  setTotalStreamCount(allStreams ? allStreams.length : 0);
+  setTotalStreamCount(endsAtDt.diff(startsAtDt).milliseconds/1000/60/SLOT_DURATION_MIN);
 
   return (
     <div className="performance-list">
