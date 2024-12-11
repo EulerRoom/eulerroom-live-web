@@ -106,7 +106,7 @@ const allStreams: (MuxyStream | EmptyMuxyStream)[] = useMemo(() => {
   return (
     <div className="performance-list">
       {allStreams &&
-        allStreams.map((muxyStream) => (
+        allStreams.map((muxyStream, index) => (
           <PerformanceCard
             key={index}
             eventUrl={eventUrl}

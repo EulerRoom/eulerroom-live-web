@@ -8,14 +8,12 @@ import PerformanceEditForm from "./PerformanceEditForm";
 
 interface Props {
   muxyStream: MuxyStream | EmptyMuxyStream;
-  cycleNo: number;
   eventUrl: string;
   active: boolean;
 }
 
 const PerformanceCard = ({
   muxyStream,
-  cycleNo,
   eventUrl,
   active,
 }: Props): ReactElement => {
