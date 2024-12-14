@@ -43,11 +43,10 @@ const PerformanceList = ({
       .catch(console.error);
   }, [slug]);
 
+  const startsAtDt = DateTime.fromISO(startsAt);
+  const endsAtDt = DateTime.fromISO(endsAt);
 
-const startsAtDt = DateTime.fromISO(startsAt);
-const endsAtDt = DateTime.fromISO(endsAt);
-
-const allStreams: (MuxyStream | EmptyMuxyStream)[] = useMemo(() => {
+  const allStreams: (MuxyStream | EmptyMuxyStream)[] = useMemo(() => {
     if (!startsAt || !endsAt) return [];
     if (!muxyStreams) return [];
 
@@ -82,14 +81,22 @@ const allStreams: (MuxyStream | EmptyMuxyStream)[] = useMemo(() => {
           ends_at: nextSlotAt.toUTC().toFormat("yyyy-MM-dd'T'HH:mm:ss'Z"),
           slot_start: slot_n + 1,
           slot_stop: slot_n + 1,
+          used: 0,
         });
         slot_n++;
         slotAt = nextSlotAt;
       } else {
         // Hack to cope with streams that last for more than one slot
-        const slots = DateTime.fromISO(stream.ends_at).diff(DateTime.fromISO(stream.starts_at)).milliseconds/1000/60/SLOT_DURATION_MIN;
+        const slots =
+          DateTime.fromISO(stream.ends_at).diff(
+            DateTime.fromISO(stream.starts_at)
+          ).milliseconds /
+          1000 /
+          60 /
+          SLOT_DURATION_MIN;
         stream.slot_start = slot_n + 1;
         stream.slot_stop = slot_n + slots;
+        stream.used = slots;
         slot_n += slots;
         slotAt = DateTime.fromISO(stream.ends_at);
 
@@ -100,8 +107,12 @@ const allStreams: (MuxyStream | EmptyMuxyStream)[] = useMemo(() => {
     return allSlots;
   }, [endsAt, muxyStreams, startsAt]);
 
-  setReservedStreamCount(muxyStreams ? muxyStreams.results.length : 0);
-  setTotalStreamCount(endsAtDt.diff(startsAtDt).milliseconds/1000/60/SLOT_DURATION_MIN);
+  const usedSlots = allStreams.map((x) => x.used).reduce((a, b) => a + b, 0);
+
+  setReservedStreamCount(usedSlots);
+  setTotalStreamCount(
+    endsAtDt.diff(startsAtDt).milliseconds / 1000 / 60 / SLOT_DURATION_MIN
+  );
 
   return (
     <div className="performance-list">

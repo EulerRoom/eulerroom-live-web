@@ -36,6 +36,7 @@ export type MuxyStream = {
   slots: number;
   slot_start: number;
   slot_stop: number;
+  used: number;
 };
 
 export type EmptyMuxyStream = {
@@ -43,6 +44,7 @@ export type EmptyMuxyStream = {
   ends_at: string;
   slot_start: number;
   slot_stop: number;
+  used: number;
 };
 
 export type MuxyStreams = {
