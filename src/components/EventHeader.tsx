@@ -44,11 +44,20 @@ function EventHeader({
   return (
     <header className="App-header">
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
-      <h2>End of cycle solstice stream</h2>
-      <h1>🌑︎</h1>
-      <p>Register a performance slot for the end-of-cycle stream below.<br />
+      <h2>Live Code Stream for Palestine</h2>
+<div class="flagbackground">
+  <div class="flagtop"></div>
+  <div class="flagmiddle"></div>
+  <div class="flagtriangle"></div>
+</div>
+
+<hr />
+<p>Please note this is in test mode - signups will be deleted.</p>
+
+<hr />
+      <p>Register a performance slot below.<br />
       All live coders welcome, especially if this will be your first public performance.<br />
-      Once you have registered, please await further instructions.</p>
+      Once you have registered, please check your email for further instructions.</p>
       <h4>
         {" "}
         {event &&

@@ -106,3 +106,32 @@ textarea {
   color: #fff;
   vertical-align: text-bottom;
 }
+
+.flagbackground {
+  background: darkgreen;
+  border: 1px red solid;
+  height: 150px;
+  width: 250px;
+}
+.flagtop { 
+  background: black;
+  width:100%;
+  height: 50px;
+  z-index: 1;
+}
+.flagmiddle {
+  background: white;
+  width: 100%;
+  height: 50px;
+  z-index: 1;
+}
+.flagtriangle {
+  background: auto;
+  border-top: 75px solid transparent;
+  border-bottom: 75px solid transparent;
+  border-left: 75px solid red;
+  z-index: 2;
+  position: relative;
+  top: -100px;
+  left: 0;
+}
