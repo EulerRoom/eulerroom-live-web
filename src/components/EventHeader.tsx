@@ -45,10 +45,10 @@ function EventHeader({
     <header className="App-header">
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
       <h2>Live Code Stream for Palestine</h2>
-      <div class="flagbackground">
-        <div class="flagtop"></div>
-        <div class="flagmiddle"></div>
-        <div class="flagtriangle"></div>
+      <div className="flagbackground">
+        <div className="flagtop"></div>
+        <div className="flagmiddle"></div>
+        <div className="flagtriangle"></div>
       </div>
 
       <hr />
