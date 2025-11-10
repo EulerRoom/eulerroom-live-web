@@ -73,7 +73,7 @@ function EventHeader({
         ,<br /> Israel is carrying out genocide through the systematic destruction of the Palestinian people in the Gaza strip.
       </p>
       <p>
-        Together we can take active steps: <br />
+        Together we can take active steps to help: <br />
         <br />
         <strong>
           Join the Palestinian-lead{" "}
@@ -152,7 +152,7 @@ function EventHeader({
       <p>Your timezone: {Intl.DateTimeFormat().resolvedOptions().timeZone}</p>
       <p className="link-paragraph">
         <b>
-          Watch live here &gt;&gt;&gt;{" "}
+          You will be able to watch live here &gt;&gt;&gt;{" "}
           <a href={"https://live.eulerroom.com"}>https://live.eulerroom.com/</a>
         </b>
       </p>
