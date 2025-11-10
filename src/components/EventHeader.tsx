@@ -52,9 +52,6 @@ function EventHeader({
       </div>
 
       <hr />
-      <p>Please note this is in test mode - signups will be deleted.</p>
-
-      <hr />
 
       <p>
         According to e.g.{" "}
@@ -73,11 +70,10 @@ function EventHeader({
         <a href="https://www.ohchr.org/en/press-releases/2025/09/israel-has-committed-genocide-gaza-strip-un-commission-finds">
           the UN
         </a>
-        ,<br /> Israel is carrying out genocide through the systematic
-        destruction of the Palestinian people in the Gaza strip.
+        ,<br /> Israel is carrying out genocide through the systematic destruction of the Palestinian people in the Gaza strip.
       </p>
       <p>
-        Together we can try to help by: <br />
+        Together we can take active steps: <br />
         <br />
         <strong>
           Join the Palestinian-lead{" "}
@@ -91,7 +87,10 @@ function EventHeader({
         against the arms trade and climate breakdown.
       </p>
       <p>
-        <strong>Write to your local/national government representative.</strong>
+        <strong>Write to your local/national government representative.</strong><br />
+        Depending on where you live, you could raise the issues of e.g. arms sales to Israel, humanitarian aid, 
+        campaigns to end Israels aid blockades, and your government's obligations to take all available steps to end genocide 
+        under international humanitarian law.
       </p>
       <p>
         <strong>Donate!</strong>
