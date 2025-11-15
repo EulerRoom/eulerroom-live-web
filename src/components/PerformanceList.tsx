@@ -1,6 +1,5 @@
 import { DateTime } from "luxon";
 import { ReactElement, useEffect, useMemo, useState } from "react";
-import "../assets/css/PerformanceList.css";
 import { EmptyMuxyStream, MuxyStream, MuxyStreams } from "../types";
 import PerformanceCard from "./PerformanceCard";
 
@@ -105,7 +104,7 @@ const PerformanceList = ({
     }
 
     return allSlots;
-  }, [endsAt, muxyStreams, startsAt]);
+  }, [endsAt, muxyStreams, startsAt, endsAtDt, startsAtDt]);
 
   const usedSlots = allStreams.map((x) => x.used).reduce((a, b) => a + b, 0);
 
@@ -115,7 +114,7 @@ const PerformanceList = ({
   );
 
   return (
-    <div className="performance-list">
+    <section className="performance-list">
       {allStreams &&
         allStreams.map((muxyStream, index) => (
           <PerformanceCard
@@ -125,7 +124,7 @@ const PerformanceList = ({
             active={active}
           />
         ))}
-    </div>
+    </section>
   );
 };
 export default PerformanceList;

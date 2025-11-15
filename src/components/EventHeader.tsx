@@ -50,9 +50,10 @@ function EventHeader({
           <div className="flagmiddle"></div>
           <div className="flagtriangle"></div>
         </div>
-        <a className="cta" href="https://live.eulerroom.com">
+        {/* We could show this button when the event is about to start? */}
+        {/* <a className="cta" href="https://live.eulerroom.com">
           Watch the stream
-        </a>
+        </a> */}
       </header>
 
       <section>
@@ -132,11 +133,11 @@ function EventHeader({
             {" "}
             Start:{" "}
             {event &&
-              DateTime.fromISO(event.starts_at).toFormat("HH:mm, dd LLLL")}{" "}
+              DateTime.fromISO(event.starts_at).toFormat("HH:mm, LLLL dd")}{" "}
             <br />
             End:{" "}
             {event &&
-              DateTime.fromISO(event.ends_at).toFormat("HH:mm, dd LLLL")}{" "}
+              DateTime.fromISO(event.ends_at).toFormat("HH:mm, LLLL dd")}{" "}
           </span>
         </p>
       </section>

@@ -6,7 +6,7 @@
 }
 
 html {
-  background: #111;
+  background: #000;
 }
 
 body {
@@ -98,7 +98,6 @@ a.cta:hover {
 }
 
 hr {
-  /* width: 30%; */
   width: 100%;
   border: 2px solid #fff;
 }
@@ -166,4 +165,61 @@ div[role="progressbar"] > .label {
   position: relative;
   top: -100px;
   left: 0;
+}
+
+.performance-list {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  padding: 16px;
+  padding-bottom: 24px;
+  border-radius: 8px;
+  background-color: rgb(38, 38, 38);
+  position: relative;
+}
+
+.card h3 {
+  margin: 0px;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.card h4 {
+  margin: 0px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.card button,
+.card input[type="submit"] {
+  background: black;
+  border: 2px outset white;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 4px 8px;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+}
+
+.card button:hover,
+.card input[type="submit"]:hover {
+  background: rgb(38, 38, 38);
+}
+
+.card nav {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.card p:first-of-type {
+  margin-top: 0px;
 }

@@ -1,6 +1,5 @@
 import { DateTime } from "luxon";
 import { ReactElement, useState } from "react";
-import "../assets/css/PerformanceCard.css";
 import { EmptyMuxyStream, MuxyStream } from "../types";
 import PerformanceCreateForm from "./PerformanceCreateForm";
 import PerformanceDestroyForm from "./PerformanceDestroyForm";
@@ -32,11 +31,12 @@ const PerformanceCard = ({
     "HH:mm LLL dd"
   );
 
-  let text = null;
-  if ("publisher_name" in currMuxyStream) {
-    const { publisher_name, location, title, timezone } = currMuxyStream;
-    text = [publisher_name, location, title, timezone].join(" / ");
-  }
+  const isRegistered = "publisher_name" in currMuxyStream;
+  // let text = null;
+  // if ("publisher_name" in currMuxyStream) {
+  //   const { publisher_name, location, title, timezone } = currMuxyStream;
+  //   text = [publisher_name, location, title, timezone].join(" / ");
+  // }
 
   const resetFormStates = () => {
     setInCreateMode(false);
@@ -56,32 +56,36 @@ const PerformanceCard = ({
   const handleRemove = () => setRemoved(true);
 
   return (
-    <div className="card">
-      <div className="card-body">
-        <p className="card-header">{muxyStream.slot_stop==muxyStream.slot_start ? ("Cycle #"+muxyStream.slot_start) : ("Cycles #"+muxyStream.slot_start+"-#"+muxyStream.slot_stop)}</p>
-        <p className="card-time">
-          {startsAtHs}-{endsAtHs}{" "}
-          {active && !inCreateMode && !text && (
-            <button
-              className="card-button-plus"
-              onClick={() => setInCreateMode(true)}
-            >
-              +
-            </button>
-          )}
-        </p>
-        {removed && <p>You have removed your slot succesfully.</p>}
-        {inCreateMode ? (
-          <PerformanceCreateForm
-            eventUrl={eventUrl}
-            startsAt={currMuxyStream.starts_at}
-            endsAt={currMuxyStream.ends_at}
-          />
-        ) : (
+    <article className="card">
+      <h3>
+        {muxyStream.slot_stop == muxyStream.slot_start
+          ? "Cycle #" + muxyStream.slot_start
+          : "Cycles #" +
+            muxyStream.slot_start +
+            "-#" +
+            muxyStream.slot_stop}{" "}
+      </h3>
+      <p className="card-time">
+        {startsAtHs} - {endsAtHs}{" "}
+      </p>
+      {active && !inCreateMode && !isRegistered && (
+        <button onClick={() => setInCreateMode(true)}>
+          Register for this slot
+        </button>
+      )}
+      {removed && <p>You have removed your slot succesfully.</p>}
+      {inCreateMode ? (
+        <PerformanceCreateForm
+          eventUrl={eventUrl}
+          startsAt={currMuxyStream.starts_at}
+          endsAt={currMuxyStream.ends_at}
+        />
+      ) : (
+        isRegistered && (
           <>
-            <p className="card-text">{removed ? "" : text || ""}</p>
-            {!removed && text && (
-              <>
+            <PerformanceCardContent muxyStream={currMuxyStream} />
+            {!removed && isRegistered && (
+              <nav>
                 <button onClick={handleEditClick} className="card-button">
                   Edit
                 </button>
@@ -102,15 +106,23 @@ const PerformanceCard = ({
                     onRemove={handleRemove}
                   />
                 )}
-              </>
+              </nav>
             )}
           </>
-        )}
-
-        <hr />
-      </div>
-    </div>
+        )
+      )}
+    </article>
   );
 };
+
+function PerformanceCardContent({ muxyStream }: { muxyStream: MuxyStream }) {
+  return (
+    <>
+      <span>“{muxyStream.title}”</span>
+      <h4>{muxyStream.publisher_name}</h4>
+      <small>{muxyStream.location}</small>
+    </>
+  );
+}
 
 export default PerformanceCard;
