@@ -11,17 +11,18 @@ interface Props {
   active: boolean;
 }
 
+export type PerformanceCardMode = "view" | "create" | "edit" | "remove";
+
 const PerformanceCard = ({
   muxyStream,
   eventUrl,
   active,
 }: Props): ReactElement => {
-  const [inCreateMode, setInCreateMode] = useState<boolean>(false);
+  const [mode, setMode] = useState<PerformanceCardMode>("view");
+
   const [currMuxyStream, setCurrMuxyStream] = useState<
     MuxyStream | EmptyMuxyStream
   >(muxyStream);
-  const [inRemoveMode, setInRemoveMode] = useState<boolean>(false);
-  const [inEditMode, setInEditMode] = useState<boolean>(false);
   const [removed, setRemoved] = useState<boolean>(false);
 
   const startsAtHs = DateTime.fromISO(muxyStream.starts_at).toFormat(
@@ -32,28 +33,6 @@ const PerformanceCard = ({
   );
 
   const isRegistered = "publisher_name" in currMuxyStream;
-  // let text = null;
-  // if ("publisher_name" in currMuxyStream) {
-  //   const { publisher_name, location, title, timezone } = currMuxyStream;
-  //   text = [publisher_name, location, title, timezone].join(" / ");
-  // }
-
-  const resetFormStates = () => {
-    setInCreateMode(false);
-    setInRemoveMode(false);
-    setInEditMode(false);
-  };
-
-  const handleEditClick = () => {
-    resetFormStates();
-    setInEditMode((prevState) => !prevState);
-  };
-
-  const handleRemoveClick = () => {
-    resetFormStates();
-    setInRemoveMode((prevState) => !prevState);
-  };
-  const handleRemove = () => setRemoved(true);
 
   return (
     <article className="card">
@@ -68,48 +47,45 @@ const PerformanceCard = ({
       <p className="card-time">
         {startsAtHs} - {endsAtHs}{" "}
       </p>
-      {active && !inCreateMode && !isRegistered && (
-        <button onClick={() => setInCreateMode(true)}>
+      {active && mode === "view" && !isRegistered && (
+        <button onClick={() => setMode("create")}>
           Register for this slot
         </button>
       )}
       {removed && <p>You have removed your slot succesfully.</p>}
-      {inCreateMode ? (
+      {mode === "edit" && "url" in currMuxyStream && (
+        <PerformanceEditForm
+          streamUrl={currMuxyStream.url}
+          currMuxyStream={currMuxyStream}
+          onSetInEditMode={() => setMode("edit")}
+          setCurrMuxyStream={setCurrMuxyStream}
+          setMode={setMode}
+        />
+      )}
+      {mode === "remove" && "url" in currMuxyStream && (
+        <PerformanceDestroyForm
+          streamUrl={currMuxyStream.url}
+          onRemove={() => setRemoved(true)}
+          setMode={setMode}
+        />
+      )}
+      {mode === "create" && (
         <PerformanceCreateForm
           eventUrl={eventUrl}
           startsAt={currMuxyStream.starts_at}
           endsAt={currMuxyStream.ends_at}
+          setMode={setMode}
         />
-      ) : (
-        isRegistered && (
-          <>
-            <PerformanceCardContent muxyStream={currMuxyStream} />
-            {!removed && isRegistered && (
-              <nav>
-                <button onClick={handleEditClick} className="card-button">
-                  Edit
-                </button>
-                <button onClick={handleRemoveClick} className="card-button">
-                  Remove
-                </button>
-                {inEditMode && "url" in currMuxyStream && (
-                  <PerformanceEditForm
-                    streamUrl={currMuxyStream.url}
-                    currMuxyStream={currMuxyStream}
-                    onSetInEditMode={setInEditMode}
-                    setCurrMuxyStream={setCurrMuxyStream}
-                  />
-                )}
-                {inRemoveMode && "url" in currMuxyStream && (
-                  <PerformanceDestroyForm
-                    streamUrl={currMuxyStream.url}
-                    onRemove={handleRemove}
-                  />
-                )}
-              </nav>
-            )}
-          </>
-        )
+      )}
+      {mode === "view" && isRegistered && (
+        <>
+          <PerformanceCardContent muxyStream={currMuxyStream} />
+          {!removed && isRegistered && (
+            <nav>
+              <button onClick={() => setMode("edit")}>Edit</button>
+            </nav>
+          )}
+        </>
       )}
     </article>
   );

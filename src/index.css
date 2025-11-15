@@ -197,7 +197,8 @@ div[role="progressbar"] > .label {
 }
 
 .card button,
-.card input[type="submit"] {
+.card input[type="submit"],
+.card input[type="button"] {
   background: black;
   border: 2px outset white;
   color: white;
@@ -210,7 +211,8 @@ div[role="progressbar"] > .label {
 }
 
 .card button:hover,
-.card input[type="submit"]:hover {
+.card input[type="submit"]:hover,
+.card input[type="button"]:hover {
   background: rgb(38, 38, 38);
 }
 
@@ -229,4 +231,16 @@ div[role="progressbar"] > .label {
 .card form {
   display: flex;
   flex-direction: column;
+}
+
+.card button.danger,
+.card input[type="submit"].danger,
+.card input[type="button"].danger {
+  background: rgb(100, 0, 0);
+}
+
+.card button.danger:hover,
+.card input[type="submit"].danger:hover,
+.card input[type="button"].danger:hover {
+  background: rgb(120, 0, 0);
 }

@@ -1,15 +1,18 @@
 import React, { ReactElement, useState } from "react";
+import { PerformanceCardMode } from "./PerformanceCard";
 
 interface Props {
   eventUrl: string;
   startsAt: string;
   endsAt: string;
+  setMode: (mode: PerformanceCardMode) => void;
 }
 
 function PerformanceCreateForm({
   eventUrl,
   startsAt,
   endsAt,
+  setMode,
 }: Props): ReactElement {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -109,6 +112,13 @@ function PerformanceCreateForm({
             required
           />
           <input type="submit" value="Register" />
+          <nav>
+            <input
+              type="button"
+              value="Cancel"
+              onClick={() => setMode("view")}
+            />
+          </nav>
         </form>
       )}
     </>

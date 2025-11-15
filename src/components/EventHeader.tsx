@@ -81,10 +81,11 @@ function EventHeader({
           Together we can take active steps to help:
         </p>
         <p>
-          <h3>
+          <strong>
             ➔ &nbsp;Join the Palestinian-led{" "}
             <a href="https://bdsmovement.net/campaigns#1">BDS movement</a>.
-          </h3>
+          </strong>
+          <br />
           e.g. Boycott Google, Amazon, Booking.com, Airbnb, Expedia, Teva,
           Chevron, Intel, Dell, Siemens, HP, Microsoft, Carrefour, AXA, Reebok,
           Disney+, Sodastream, Re/max. Switching to ethical banking/pension can
@@ -92,18 +93,22 @@ function EventHeader({
           trade and climate breakdown.
         </p>
         <p>
-          <h3>
+          <strong>
             ➔ &nbsp;Write to your local/national government representative.
-          </h3>
+          </strong>
+          <br />
           Depending on where you live, you could raise the issues of e.g. arms
           sales to Israel, humanitarian aid, campaigns to end Israels aid
           blockades, and your government's obligations to take all available
           steps to end genocide under international humanitarian law.
         </p>
         <p>
-          <h3>➔ &nbsp;Donate!</h3> e.g. To{" "}
-          <a href="https://www.map.org.uk/">Medical Aid for Palestinians</a>,{" "}
-          <a href="https://eleelnaelak.org/">Ele Elna Enak </a>,{" "}
+          <strong>➔ &nbsp;Donate!</strong>
+          <br />
+          e.g. To{" "}
+          <a href="https://www.map.org.uk/">
+            Medical Aid for Palestinians
+          </a>, <a href="https://eleelnaelak.org/">Ele Elna Enak </a>,{" "}
           <a href="https://chuffed.org/project/113222-tent-campaign-the-sameer-project">
             Sameer
           </a>
@@ -113,7 +118,8 @@ function EventHeader({
           </a>
         </p>
         <p>
-          <h3>➔ &nbsp;Spread the word.</h3>
+          <strong>➔ &nbsp;Spread the word.</strong>
+          <br />
           e.g. By sharing this stream in your community and/or contributing a
           performance.
         </p>

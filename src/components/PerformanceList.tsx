@@ -40,7 +40,7 @@ const PerformanceList = ({
         setMuxyStreams(data);
       })
       .catch(console.error);
-  }, [slug]);
+  }, [slug, setMuxyStreams, muxyApiKey, muxyUrl]);
 
   const startsAtDt = DateTime.fromISO(startsAt);
   const endsAtDt = DateTime.fromISO(endsAt);
