@@ -42,121 +42,130 @@ function EventHeader({
   );
 
   return (
-    <header className="App-header">
-      {/* <img src={logo} className="App-logo" alt="logo" /> */}
-      <h2>Live Code Stream for Palestine</h2>
-      <div className="flagbackground">
-        <div className="flagtop"></div>
-        <div className="flagmiddle"></div>
-        <div className="flagtriangle"></div>
-      </div>
+    <>
+      <header>
+        <h1>Live Code Stream for Palestine</h1>
+        <div className="flagbackground">
+          <div className="flagtop"></div>
+          <div className="flagmiddle"></div>
+          <div className="flagtriangle"></div>
+        </div>
+        <a className="cta" href="https://live.eulerroom.com">
+          Watch the stream
+        </a>
+      </header>
 
+      <section>
+        <p>
+          According to e.g.{" "}
+          <a href="https://genocidescholars.org/wp-content/uploads/2025/08/IAGS-Resolution-on-Gaza-FINAL.pdf">
+            leading scholars
+          </a>
+          , <a href="https://pchrgaza.org/">Palestinian</a>,{" "}
+          <a href="https://www.btselem.org/publications/202507_our_genocide">
+            Israeli
+          </a>{" "}
+          and{" "}
+          <a href="https://www.amnesty.org/en/latest/news/2024/12/amnesty-international-concludes-israel-is-committing-genocide-against-palestinians-in-gaza/">
+            International
+          </a>{" "}
+          human rights organisations, and{" "}
+          <a href="https://www.ohchr.org/en/press-releases/2025/09/israel-has-committed-genocide-gaza-strip-un-commission-finds">
+            the UN
+          </a>
+          , Israel is carrying out genocide through the systematic destruction
+          of the Palestinian people in the Gaza strip.
+        </p>
+        <p style={{ paddingTop: "18px" }}>
+          Together we can take active steps to help:
+        </p>
+        <p>
+          <h3>
+            ➔ &nbsp;Join the Palestinian-led{" "}
+            <a href="https://bdsmovement.net/campaigns#1">BDS movement</a>.
+          </h3>
+          e.g. Boycott Google, Amazon, Booking.com, Airbnb, Expedia, Teva,
+          Chevron, Intel, Dell, Siemens, HP, Microsoft, Carrefour, AXA, Reebok,
+          Disney+, Sodastream, Re/max. Switching to ethical banking/pension can
+          be the easiest and most effective individual action against the arms
+          trade and climate breakdown.
+        </p>
+        <p>
+          <h3>
+            ➔ &nbsp;Write to your local/national government representative.
+          </h3>
+          Depending on where you live, you could raise the issues of e.g. arms
+          sales to Israel, humanitarian aid, campaigns to end Israels aid
+          blockades, and your government's obligations to take all available
+          steps to end genocide under international humanitarian law.
+        </p>
+        <p>
+          <h3>➔ &nbsp;Donate!</h3> e.g. To{" "}
+          <a href="https://www.map.org.uk/">Medical Aid for Palestinians</a>,{" "}
+          <a href="https://eleelnaelak.org/">Ele Elna Enak </a>,{" "}
+          <a href="https://chuffed.org/project/113222-tent-campaign-the-sameer-project">
+            Sameer
+          </a>
+          ,{" "}
+          <a href="https://chuffed.org/project/115245-dahnoun-mutual-aid">
+            Dahnoun
+          </a>
+        </p>
+        <p>
+          <h3>➔ &nbsp;Spread the word.</h3>
+          e.g. By sharing this stream in your community and/or contributing a
+          performance.
+        </p>
+      </section>
       <hr />
 
-      <p>
-        According to e.g.{" "}
-        <a href="https://genocidescholars.org/wp-content/uploads/2025/08/IAGS-Resolution-on-Gaza-FINAL.pdf">
-          leading scholars
-        </a>
-        , <a href="https://pchrgaza.org/">Palestinian</a>,{" "}
-        <a href="https://www.btselem.org/publications/202507_our_genocide">
-          Israeli
-        </a>{" "}
-        and{" "}
-        <a href="https://www.amnesty.org/en/latest/news/2024/12/amnesty-international-concludes-israel-is-committing-genocide-against-palestinians-in-gaza/">
-          International
-        </a>{" "}
-        human rights organisations, and{" "}
-        <a href="https://www.ohchr.org/en/press-releases/2025/09/israel-has-committed-genocide-gaza-strip-un-commission-finds">
-          the UN
-        </a>
-        ,<br /> Israel is carrying out genocide through the systematic destruction of the Palestinian people in the Gaza strip.
-      </p>
-      <p>
-        Together we can take active steps to help: <br />
-        <br />
-        <strong>
-          Join the Palestinian-lead{" "}
-          <a href="https://bdsmovement.net/campaigns#1">BDS movement.</a>
-        </strong>
-        <br />
-        E.g. boycott Google, Amazon, Booking.com, Airbnb, Expedia, Teva,
-        Chevron, Intel, Dell, Siemens, HP, Microsoft, Carrefour, <br />
-        AXA, Reebok, Disney+, Sodastream, Re/max. <br /> Switching to ethical
-        banking/pension can be the easiest and most effective individual action
-        against the arms trade and climate breakdown.
-      </p>
-      <p>
-        <strong>Write to your local/national government representative.</strong><br />
-        Depending on where you live, you could raise the issues of e.g. arms sales to Israel, humanitarian aid, 
-        campaigns to end Israels aid blockades, and your government's obligations to take all available steps to end genocide 
-        under international humanitarian law.
-      </p>
-      <p>
-        <strong>Donate!</strong>
-        <br /> e.g.{" "}
-        <a href="https://www.map.org.uk/">Medical Aid for Palestinians</a>,
-        <a href="https://eleelnaelak.org/">Ele Elna Enak </a>,
-        <a href="https://chuffed.org/project/113222-tent-campaign-the-sameer-project">
-          Sameer
-        </a>
-        ,{" "}
-        <a href="https://chuffed.org/project/115245-dahnoun-mutual-aid">
-          Dahnoun
-        </a>
-      </p>
-      <p>
-        <strong>Spread the word.</strong>
-        <br />
-        E.g. by sharing this stream in your community and/or contributing a
-        performance.
-      </p>
+      <section>
+        <h2>Event information</h2>
+        <p>
+          <strong>
+            You will be able to watch live here:{" "}
+            <a href={"https://live.eulerroom.com"}>live.eulerroom.com</a>
+          </strong>
+        </p>
+        <p>
+          <span>
+            {" "}
+            Start:{" "}
+            {event &&
+              DateTime.fromISO(event.starts_at).toFormat("HH:mm, dd LLLL")}{" "}
+            <br />
+            End:{" "}
+            {event &&
+              DateTime.fromISO(event.ends_at).toFormat("HH:mm, dd LLLL")}{" "}
+          </span>
+        </p>
+      </section>
       <hr />
 
-      <p>
-        Register a performance slot below.
-        <br />
-        All live coders welcome, especially if this will be your first public
-        performance.
-        <br />
-        Once you have registered, please check your email for further
-        instructions.
-      </p>
-      <h4>
-        {" "}
-        {event &&
-          DateTime.fromISO(event.starts_at).toFormat("dd. LLLL HH:mm")}{" "}
-        - {event && DateTime.fromISO(event.ends_at).toFormat("dd. LLLL HH:mm")}{" "}
-        {event && DateTime.fromISO(event.starts_at).toFormat("yyyy")}
-      </h4>
-      {/* {!event?.active && (
-        <h4 style={{ color: "darkred" }}>
-          Note: This event is not yet open for registration. Slot
-          sign up opens Wed, May 8 for Asia/Pacific, May 15th globally.
-        </h4>
-      )} */}
-      <hr />
-      <ProgressBar
-        className="wrapper"
-        bgColor={"#a9c27c"}
-        baseBgColor={"#ffffff"}
-        labelClassName="label"
-        labelAlignment={"outside"}
-        width={"100%"}
-        height={"28px"}
-        margin={"8px"}
-        customLabel={`${progressBarValues.reserved}/${progressBarValues.total} slots are filled`}
-        completed={progressBarValues.percent}
-      />
-      <hr />
-      <p>Your timezone: {Intl.DateTimeFormat().resolvedOptions().timeZone}</p>
-      <p className="link-paragraph">
-        <b>
-          You will be able to watch live here &gt;&gt;&gt;{" "}
-          <a href={"https://live.eulerroom.com"}>https://live.eulerroom.com/</a>
-        </b>
-      </p>
-    </header>
+      <section>
+        <h2>Schedule</h2>
+        <p>
+          Register for a performance slot below.
+          <br />
+          All live coders are welcome, especially if this will be your first
+          public performance.
+          <br />
+          Once you've registered, please check your email for further
+          instructions.
+        </p>
+        <ProgressBar
+          bgColor={"#a9c27c"}
+          baseBgColor={"#ffffff"}
+          labelClassName="label"
+          labelAlignment={"outside"}
+          width={"100%"}
+          height={"28px"}
+          margin={"8px"}
+          customLabel={`${progressBarValues.reserved}/${progressBarValues.total} slots are filled`}
+          completed={progressBarValues.percent}
+        />
+      </section>
+    </>
   );
 }
 
