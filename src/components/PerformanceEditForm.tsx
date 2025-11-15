@@ -1,11 +1,13 @@
 import React, { ReactElement, useState } from "react";
 import { MuxyStream } from "../types";
+import { PerformanceCardMode } from "./PerformanceCard";
 
 interface Props {
   streamUrl: string;
   currMuxyStream: MuxyStream;
   onSetInEditMode: (inEditMode: boolean) => void;
   setCurrMuxyStream: (muxyStream: MuxyStream) => void;
+  setMode: (mode: PerformanceCardMode) => void;
 }
 
 function PerformanceEditForm({
@@ -13,6 +15,7 @@ function PerformanceEditForm({
   currMuxyStream,
   onSetInEditMode,
   setCurrMuxyStream,
+  setMode,
 }: Props): ReactElement {
   const [name, setName] = useState<string>(currMuxyStream.publisher_name);
   const [title, setTitle] = useState<string>(currMuxyStream.title);
@@ -72,11 +75,12 @@ function PerformanceEditForm({
   };
 
   return (
-    <div className="PerformanceEditForm">
-      <form className="PerformanceCreateForm" onSubmit={handleSubmit}>
+    <>
+      <form onSubmit={handleSubmit}>
         <p>
-          Enter your streaming key to confirm you want to edit your slot. If you
-          do not remember your streaming key, please contact the event
+          Please enter your streaming key to edit your slot. It was e-mailed to
+          you when you registered. If you've lost your streaming key, or you
+          want to change your e-mail address, please contact the event
           organizer.
         </p>
         {failed && (
@@ -94,13 +98,6 @@ function PerformanceEditForm({
           onChange={(e) => setStreamKey(e.target.value)}
           required
         />
-        <p>
-          Here you find your stream information that you can edit. The email
-          address can not displayed for security reasons. If you have problems
-          with your e-mail adress, please contace the event organizer. The
-          information will only be updated if you have entered the correct
-          stream key.
-        </p>
         <input
           id="name"
           type="text"
@@ -133,9 +130,18 @@ function PerformanceEditForm({
           onChange={(e) => setLocation(e.target.value)}
           required
         />
-        <input type="submit" className="card-button" value="Save" />
+        <input type="submit" className="card-button" value="Save slot" />
+        <input
+          type="button"
+          value="Remove slot"
+          className="danger"
+          onClick={() => setMode("remove")}
+        />
+        <nav>
+          <input type="button" value="Cancel" onClick={() => setMode("view")} />
+        </nav>
       </form>
-    </div>
+    </>
   );
 }
 

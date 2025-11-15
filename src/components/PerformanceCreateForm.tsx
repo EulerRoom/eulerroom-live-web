@@ -1,15 +1,18 @@
 import React, { ReactElement, useState } from "react";
+import { PerformanceCardMode } from "./PerformanceCard";
 
 interface Props {
   eventUrl: string;
   startsAt: string;
   endsAt: string;
+  setMode: (mode: PerformanceCardMode) => void;
 }
 
 function PerformanceCreateForm({
   eventUrl,
   startsAt,
   endsAt,
+  setMode,
 }: Props): ReactElement {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -67,7 +70,7 @@ function PerformanceCreateForm({
         </div>
       )}
       {!streamkey && (
-        <form className="PerformanceCreateForm" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <input
             id="name"
             type="text"
@@ -79,7 +82,7 @@ function PerformanceCreateForm({
           <input
             id="email"
             type="text"
-            placeholder="E-Mail"
+            placeholder="E-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -108,7 +111,14 @@ function PerformanceCreateForm({
             onChange={(e) => setLocation(e.target.value)}
             required
           />
-          <input type="submit" className="card-button" value="Rave On" />
+          <input type="submit" value="Register" />
+          <nav>
+            <input
+              type="button"
+              value="Cancel"
+              onClick={() => setMode("view")}
+            />
+          </nav>
         </form>
       )}
     </>

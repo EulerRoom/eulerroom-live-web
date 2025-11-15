@@ -1,23 +1,30 @@
 @import url("https://rsms.me/inter/inter.css");
 
+* {
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
 html {
   background: #000;
-  line-height: 0.5;
-  margin: 0 auto;
 }
 
 body {
-  margin: 0;
   font-kerning: normal;
   font-family: "Inter", sans-serif;
-  letter-spacing: -0.85px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #fff;
+  letter-spacing: -0.85px;
+  color: white;
 }
 
 main {
   display: block;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 code {
@@ -25,40 +32,73 @@ code {
     monospace;
 }
 
-h2 {
-  color: #fff;
-}
-
-h1,
-h2,
-h3 {
-  font-size: 200%;
-  font-weight: 800;
-  margin: 0 auto;
-  line-height: 1.5;
-}
-
 h1 {
-  font-size: 500%;
+  font-weight: 800;
+  font-size: 48px;
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 42px;
+  }
+}
+
+h2 {
+  font-weight: 500;
+  line-height: 1.5;
+  font-size: 32px;
+  margin-top: 0px;
+}
+
+h3 {
+  font-weight: 800;
+  margin-bottom: 0px;
+}
+
+header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 p {
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 p.link-paragraph {
   margin: 4px;
   padding: 8px;
-  letter-spacing: -0.85px;
 }
 
 a {
   color: #fff;
 }
 
+a:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+a.cta {
+  background-color: white;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 24px;
+}
+
+a.cta:hover {
+  background-color: black;
+  color: white;
+}
+
 hr {
-  width: 30%;
+  width: 100%;
   border: 2px solid #fff;
 }
 
@@ -68,53 +108,47 @@ img {
 }
 
 input {
-  width: 100%;
-  margin-bottom: 8px;
-  height: 24px;
+  font-family: "Inter", sans-serif;
 }
+
 textarea {
   width: 100%;
-  margin-bottom: 8px;
-}
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  min-height: 75vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(2px + 2vmin);
-}
-
-.wrapper {
-  width: 24%;
+  font-family: "Inter", sans-serif;
+  resize: vertical;
+  min-height: 42px;
+  height: 100px;
 }
 
 .label {
-  font-size: 100%;
   font-weight: bold;
   color: #fff;
   vertical-align: text-bottom;
+}
+
+div[role="progressbar"] {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+div[role="progressbar"] > div {
+  max-width: 800px;
+  width: 100%;
+}
+div[role="progressbar"] > .label {
+  text-align: center;
 }
 
 .flagbackground {
   background: darkgreen;
   border: 1px red solid;
   height: 150px;
-  width: 250px;
+  max-width: 250px;
+  width: 100%;
 }
-.flagtop { 
+.flagtop {
   background: black;
-  width:100%;
+  width: 100%;
   height: 50px;
   z-index: 1;
 }
@@ -133,4 +167,80 @@ textarea {
   position: relative;
   top: -100px;
   left: 0;
+}
+
+.performance-list {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  padding: 16px;
+  padding-bottom: 24px;
+  border-radius: 8px;
+  background-color: rgb(38, 38, 38);
+  position: relative;
+}
+
+.card h3 {
+  margin: 0px;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.card h4 {
+  margin: 0px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.card button,
+.card input[type="submit"],
+.card input[type="button"] {
+  background: black;
+  border: 2px outset white;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 4px 8px;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+}
+
+.card button:hover,
+.card input[type="submit"]:hover,
+.card input[type="button"]:hover {
+  background: rgb(38, 38, 38);
+}
+
+.card nav {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.card p:first-of-type {
+  margin-top: 0px;
+}
+
+.card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.card button.danger,
+.card input[type="submit"].danger,
+.card input[type="button"].danger {
+  background: rgb(100, 0, 0);
+}
+
+.card button.danger:hover,
+.card input[type="submit"].danger:hover,
+.card input[type="button"].danger:hover {
+  background: rgb(120, 0, 0);
 }
