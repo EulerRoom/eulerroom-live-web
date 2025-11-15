@@ -108,13 +108,15 @@ img {
 }
 
 input {
-  width: 100%;
-  margin-bottom: 8px;
-  height: 24px;
+  font-family: "Inter", sans-serif;
 }
+
 textarea {
   width: 100%;
-  margin-bottom: 8px;
+  font-family: "Inter", sans-serif;
+  resize: vertical;
+  min-height: 42px;
+  height: 100px;
 }
 
 .label {
@@ -222,4 +224,9 @@ div[role="progressbar"] > .label {
 
 .card p:first-of-type {
   margin-top: 0px;
+}
+
+.card form {
+  display: flex;
+  flex-direction: column;
 }
