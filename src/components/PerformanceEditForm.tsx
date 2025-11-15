@@ -64,6 +64,7 @@ function PerformanceEditForm({
             description: description,
             location: location,
           });
+          setMode("view");
         } else {
           setFailed(true);
         }
