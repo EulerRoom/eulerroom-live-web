@@ -146,6 +146,13 @@ function EventHeader({
               DateTime.fromISO(event.ends_at).toFormat("HH:mm, LLLL dd")}{" "}
           </span>
         </p>
+        <p>
+          <em>
+            All times are listed for the timezone:{" "}
+            {Intl.DateTimeFormat().resolvedOptions().timeZone} (automatically
+            detected)
+          </em>
+        </p>
       </section>
       <hr />
 
@@ -159,6 +166,13 @@ function EventHeader({
           <br />
           Once you've registered, please check your email for further
           instructions.
+        </p>
+        <p>
+          <em>
+            All times are listed for the timezone:{" "}
+            {Intl.DateTimeFormat().resolvedOptions().timeZone} (automatically
+            detected)
+          </em>
         </p>
         <ProgressBar
           bgColor={"#a9c27c"}
