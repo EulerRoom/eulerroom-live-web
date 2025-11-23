@@ -50,10 +50,9 @@ function EventHeader({
           <div className="flagmiddle"></div>
           <div className="flagtriangle"></div>
         </div>
-        {/* Comment this out when the event ends :) */}
-        <a className="cta" href="https://live.eulerroom.com" target="_blank">
+        {/* <a className="cta" href="https://live.eulerroom.com" target="_blank">
           Watch the stream
-        </a>
+        </a> */}
       </header>
 
       <section>
