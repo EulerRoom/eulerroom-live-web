@@ -45,11 +45,6 @@ function EventHeader({
     <>
       <header>
         <h1>15 years of From Scratch</h1>
-        //<div className="flagbackground">
-        // <div className="flagtop"></div>
-        //  <div className="flagmiddle"></div>
-        //  <div className="flagtriangle"></div>
-        </div>
         {/* <a className="cta" href="https://live.eulerroom.com" target="_blank">
           Watch the stream
         </a> */}
