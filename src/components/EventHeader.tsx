@@ -62,8 +62,7 @@ function EventHeader({
     <li>Everyone must virtually clap at the end no matter the result!</li>
     </ol>
 
-You can find more information at the 
-<a href="https://www.toplap.cat/posts/from-scratch/">toplap barcelona page</a>
+You can find more information at the <a href="https://www.toplap.cat/posts/from-scratch/">toplap barcelona page</a>.
         </p>
       </section>
       <hr />
