@@ -52,8 +52,16 @@ function EventHeader({
 
       <section>
         <p>
-        From Scratch is an event organized by Toplap BCN (Barcelona).
-          Sessions should be done with code from scratch."
+15 years have passed from the first from scratch session held on December 7th at Centro Multimedia in Mexico City. <br>
+
+In a from scratch live coders have to: <br>
+
+1. Start from a blank screen<br>
+2. Play for 9 minutes. On this stream slots are 12 minutes long 3 for setting up and 9 to play!<br>
+3. Everyone must virtually clap at the end no matter the result!<br>
+<br>
+You can find more information at the 
+<a href="https://www.toplap.cat/posts/from-scratch/">toplap barcelona page</a>
         </p>
       </section>
       <hr />
