@@ -44,7 +44,7 @@ function EventHeader({
   return (
     <>
       <header>
-        <h1>15 years of From Scratch</h1>
+        <h1>Around the world</h1>
         {/* <a className="cta" href="https://live.eulerroom.com" target="_blank">
           Watch the stream
         </a> */}
@@ -52,17 +52,7 @@ function EventHeader({
 
       <section>
         <p>
-15 years have passed from the first from scratch session held on December 7th at Centro Multimedia in Mexico City.
-        <br />
-
-    In a from scratch live coders have to: <br />
-    <ol>
-    <li>Start from a blank screen</li>
-    <li>Play for 9 minutes. (On this stream slots are 15 minutes long 6 for setting up and 9 to play)</li> 
-    <li>Everyone must virtually clap at the end no matter the result</li>
-    </ol>
-
-You can find more information at the <a href="https://www.toplap.cat/posts/from-scratch/">toplap barcelona page</a>.
+          Live coding around the world, starting from Naarm/Melbourne, Australia
         </p>
       </section>
       <hr />
