@@ -52,7 +52,7 @@ function EventHeader({
 
       <section>
         <p>
-          Live coding around the world, starting from Naarm/Melbourne, Australia
+          Live coding around the world, celebrating (living) code across timezones.
         </p>
       </section>
       <hr />
